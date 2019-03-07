@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/clear_sky">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/logo_timeperfect" />
+
+    <LinearLayout
+        android:id="@+id/select_spinners"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+        <!--TextViews-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="50dp">
+
+            <TextView
+                android:id="@+id/college_name"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="College :"
+                android:textColor="@color/White"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/branch_name"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:text="Branch :"
+                android:textColor="@color/White"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/semester_number"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:text="Semester :"
+                android:textColor="@color/White"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/section_name"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:text="Section :"
+                android:visibility="gone"
+                android:textColor="@color/White"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!--Spinners-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/college_spinner"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp" />
+
+            <Spinner
+                android:id="@+id/branch_spinner"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp" />
+
+            <Spinner
+                android:id="@+id/semester_spinner"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp" />
+
+            <Spinner
+                android:id="@+id/section_spinner"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/next_button"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="15dp"
+        android:src="@drawable/next"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>

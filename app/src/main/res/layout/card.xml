@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:background="@drawable/shape"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="false"
+    android:id="@+id/dragView">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_expand_more_black_24dp"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+    <TextView
+        android:id="@+id/adapter_room"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="SA-12"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/darkcolor"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"/>
+    <TextView
+        android:id="@+id/adapter_subject"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Theory Of Computation"
+        android:textColor="@color/darkcolor"
+        android:textSize="20sp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"/>
+    <TextView
+        android:id="@+id/adater_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="starts in 15 mins"
+        android:textSize="15sp"
+        android:textColor="@color/darkcolor"
+        android:layout_marginTop="3dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/darkcolor"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:src="@drawable/faculty"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/adapter_faculty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr. R. R. Janghel"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/darkcolor"/>
+            <TextView
+                android:id="@+id/adapter_desig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Associate Professor"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

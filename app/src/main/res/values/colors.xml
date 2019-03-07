@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#336699</color>
+    <color name="colorPrimaryDark">#336699</color>
+    <color name="colorAccent">#6C939F</color>
+    <color name="White">#ffffff</color>
+    <color name="Charcoal">#36454F</color>
+    <color name="Black">#000</color>
+    <color name="transparent">#00ff001c</color>
+    <color name="darkcolor">#1B2F47</color>
+    <color name="lightShade">#3973ac</color>
+    <color name="darkShade">#2D5986</color>
+
+    <color name="card1_bg">#f78507</color>
+    <color name="card2_bg">#244637</color>
+    <color name="card3_bg">#c056d9</color>
+    <color name="card4_bg">#967754</color>
+    <color name="card5_bg">#ef075c</color>
+    <color name="card6_bg">#22adf5</color>
+    <color name="card7_bg">#5cee36</color>
+
+    <color name="color1">#4568DC</color>
+    <color name="color2">#00ffff</color>
+</resources>

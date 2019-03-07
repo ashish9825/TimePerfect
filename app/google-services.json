@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "481634626763",
+    "firebase_url": "https://timeperfect-e8ce7.firebaseio.com",
+    "project_id": "timeperfect-e8ce7",
+    "storage_bucket": "timeperfect-e8ce7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481634626763:android:f18cf3742251aaf1",
+        "android_client_info": {
+          "package_name": "com.example.ashishpanjwani.timeperfectagain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481634626763-jbh05mu001d8p0kb8c4hu0pgm53nlkhc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ashishpanjwani.timeperfectagain",
+            "certificate_hash": "a6053f952c6e1d9354e482e1e09a1f2598f9f072"
+          }
+        },
+        {
+          "client_id": "481634626763-ol788bh87c14jji5omdad1qocf5rq5ve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNOmRDodWCQq5HjhZVPnD94gY2AKgBdB8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481634626763-ol788bh87c14jji5omdad1qocf5rq5ve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

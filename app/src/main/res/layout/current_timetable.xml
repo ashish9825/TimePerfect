@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/Charcoal"
+    tools:showIn="@layout/activity_scrolling">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.ashishpanjwani.timeperfectagain.ScrollingActivity"
+        android:background="@color/Charcoal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Computer Science\nEngineering"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:id="@+id/CSE"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/White"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5th 'A'"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:id="@+id/sem"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp"
+            android:textColor="@color/White"/>
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="170dp"
+            android:text="Current Period"
+            android:textSize="35sp"
+            android:gravity="center"
+            android:id="@+id/CurrentPeriod"
+            android:textColor="@color/White"/>
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/CurrentPeriod"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:id="@+id/period"
+            android:textColor="@color/White"/>
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/period"
+            android:text="Next Period"
+            android:layout_marginTop="25dp"
+            android:textSize="32sp"
+            android:gravity="center"
+            android:id="@+id/next_period"
+            android:textColor="@color/White"/>
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/next_period"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:id="@+id/upcoming_lecture"
+            android:textColor="@color/White"/>
+        <!--<Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/upcoming_lecture"
+            android:text="Time Table"
+            android:textSize="22sp"
+            android:layout_marginTop="37dp"
+            android:textColor="@color/White"
+            android:background="@drawable/red_dot" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180dp"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:id="@+id/heading"
+            android:textColor="@color/White"/>
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:id="@+id/heading1"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/heading"
+            android:textColor="@color/White"/>
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
