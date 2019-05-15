@@ -1,4 +1,4 @@
-# TimePerfectAgain
+# TimePerfect
 Full Schedule of RCET Bhilai &amp; NIT Raipur
 
 TimePerfect is an android app which is being made primarily for RCET Students to get the information regarding the schedule of a particular day with the lecture details.
