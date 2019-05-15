@@ -245,6 +245,7 @@ public class SplashActivity extends AppCompatActivity implements InternetConnect
 
     @Override
     public void onInternetConnectivityChanged(boolean isConnected) {
+        Log.d("Boolean Value",""+isConnected);
         if (isConnected) {
             checkLogin();
         }

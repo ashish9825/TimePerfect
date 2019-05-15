@@ -19,7 +19,6 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -44,6 +43,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AfterSignUpActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Views.HolidayActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Views.NoticeActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Views.FacultyActivity" android:theme="@style/AppTheme.NoActionBar"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

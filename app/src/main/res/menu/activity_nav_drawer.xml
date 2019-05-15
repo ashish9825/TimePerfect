@@ -17,6 +17,9 @@
             android:id="@+id/faculties"
             android:title="Faculties"/>
         <item
+            android:id="@+id/holidays"
+            android:title="List Of Holidays"/>
+        <item
             android:id="@+id/nav_donate"
             android:title="Support"/>
         <item

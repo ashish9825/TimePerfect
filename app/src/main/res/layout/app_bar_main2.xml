@@ -5,13 +5,12 @@
     android:layout_height="match_parent"
     android:background="#336699"
     android:id="@+id/layout"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/rel"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:android="http ://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"

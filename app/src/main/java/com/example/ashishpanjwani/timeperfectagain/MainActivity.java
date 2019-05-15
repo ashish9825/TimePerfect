@@ -1,5 +1,6 @@
 package com.example.ashishpanjwani.timeperfectagain;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +15,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,10 +25,12 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
@@ -42,8 +47,12 @@ import com.example.ashishpanjwani.timeperfectagain.Model.CurrentTimeList;
 import com.example.ashishpanjwani.timeperfectagain.Model.UserProfile;
 import com.example.ashishpanjwani.timeperfectagain.Receiver.ScreenReceiver;
 import com.example.ashishpanjwani.timeperfectagain.Utils.SharedPrefManager;
+import com.example.ashishpanjwani.timeperfectagain.Utils.TimePerfectUtil;
 import com.example.ashishpanjwani.timeperfectagain.Views.AboutActivity;
 import com.example.ashishpanjwani.timeperfectagain.Views.DonateActivity;
+import com.example.ashishpanjwani.timeperfectagain.Views.FacultyActivity;
+import com.example.ashishpanjwani.timeperfectagain.Views.HolidayActivity;
+import com.example.ashishpanjwani.timeperfectagain.Views.NoticeActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -114,8 +123,13 @@ public class MainActivity extends AppCompatActivity implements InternetConnectiv
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
+        /*DisplayMetrics metrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int mScreenWidth = metrics.widthPixels;
+        int mScreenHeight = metrics.heightPixels;
+        View view = getLayoutInflater().inflate(R.layout.nav_main,null);
+        setContentView(view,new ViewGroup.LayoutParams(mScreenWidth,mScreenHeight));*/
         setContentView(R.layout.nav_main);
 
         Toolbar toolbar=findViewById(R.id.toolbar);
@@ -165,12 +179,13 @@ public class MainActivity extends AppCompatActivity implements InternetConnectiv
         View header = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+        TimePerfectUtil.setMargins(navigationView,0,0,0,TimePerfectUtil.getSoftButtonsBarSizePort(MainActivity.this));
 
         mFullNameTextView = header.findViewById(R.id.name_textview);
         mEmailTextView = header.findViewById(R.id.email_textview);
         mProfileImageView = header.findViewById(R.id.imageView);
 
-        mAuth = com.google.firebase.auth.FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         //Create an object of shared preference manager and get stored user data
         sharedPrefManager = new SharedPrefManager(mContext);
@@ -267,9 +282,21 @@ public class MainActivity extends AppCompatActivity implements InternetConnectiv
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        TimePerfectUtil.setMargins(recyclerView,0,0,0, TimePerfectUtil.getSoftButtonsBarSizePort(MainActivity.this));
         getDayTimes();
     }
-
+   /* @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                    | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            );
+        }
+    }*/
     @Override
     public void onBackPressed() {
 
@@ -440,7 +467,7 @@ public class MainActivity extends AppCompatActivity implements InternetConnectiv
                     @Override
                     public void onFailure(Call<List<CurrentTimeList>> call, Throwable t) {
 
-                        Toast.makeText(MainActivity.this, "Ashish !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Connection TimeOut !", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -448,7 +475,7 @@ public class MainActivity extends AppCompatActivity implements InternetConnectiv
             @Override
             public void onFailure(Call<List<UserProfile>> call, Throwable t) {
 
-                Toast.makeText(MainActivity.this, "MainActivity !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Network Failure !", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -519,28 +546,46 @@ public class MainActivity extends AppCompatActivity implements InternetConnectiv
         if (id==R.id.nav_time) {
             Intent intent = new Intent(MainActivity.this,DayActivitty.class);
             intent.putExtra("UniqueId","From MainActivity");
-            startActivity(intent);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
+            finish();
         } else if (id==R.id.nav_donate) {
             Intent intent = new Intent(MainActivity.this, DonateActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
             finish();
         } else if (id==R.id.nav_about) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
             finish();
         } else if (id==R.id.home_drawer) {
             getDayTimes();
         } else if (id==R.id.exit_app) {
             finish();
         } else if (id==R.id.notices) {
-            Toast.makeText(mContext, "Coming Soon !", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(mContext, "Coming Soon !", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, NoticeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
+            finish();
         } else if (id==R.id.faculties) {
-            Toast.makeText(mContext, "Coming Soon !", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(mContext, "Coming Soon !", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, FacultyActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
+            finish();
+        } else if (id==R.id.holidays) {
+            Intent intent = new Intent(MainActivity.this, HolidayActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer=findViewById(R.id.drawer_layout);

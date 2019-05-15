@@ -50,7 +50,6 @@ public class DayActivitty extends AppCompatActivity implements InternetConnectiv
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         setContentView(R.layout.activity_day_activitty);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

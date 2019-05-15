@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.ashishpanjwani.timeperfectagain.Adapter.TimeAdapter;
 import com.example.ashishpanjwani.timeperfectagain.Interfaces.TimePerfectAPIs;
 import com.example.ashishpanjwani.timeperfectagain.Model.CurrentTimeList;
+import com.example.ashishpanjwani.timeperfectagain.Utils.TimePerfectUtil;
 import com.google.gson.Gson;
 import com.treebo.internetavailabilitychecker.InternetConnectivityListener;
 
@@ -46,7 +47,6 @@ public class TimeTableActivity extends AppCompatActivity implements InternetConn
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         setContentView(R.layout.activity_daytime);
         toolbar = findViewById(R.id.toolbar_daytime);
@@ -63,6 +63,7 @@ public class TimeTableActivity extends AppCompatActivity implements InternetConn
         progressBar=findViewById(R.id.linlaCHeaderProgress);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        TimePerfectUtil.setMargins(recyclerView,0,0,0, TimePerfectUtil.getSoftButtonsBarSizePort(TimeTableActivity.this));
 
         Intent intent = this.getIntent();
 
@@ -127,7 +128,6 @@ public class TimeTableActivity extends AppCompatActivity implements InternetConn
             startActivity(intent);
             finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -151,6 +151,7 @@ public class TimeTableActivity extends AppCompatActivity implements InternetConn
         Intent intent = new Intent(TimeTableActivity.this,DayActivitty.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("UniqueId","From MainActivity");
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
         startActivity(intent);
         finish();
         super.onBackPressed();

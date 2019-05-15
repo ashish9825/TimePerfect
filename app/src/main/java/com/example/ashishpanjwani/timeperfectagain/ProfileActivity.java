@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -64,7 +65,6 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         setContentView(R.layout.activity_profile);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_profile);
@@ -239,6 +239,7 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
     public void onBackPressed() {
         Intent intents = new Intent(ProfileActivity.this,MainActivity.class);
         intents.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
         startActivity(intents);
         finish();
     }
@@ -259,6 +260,26 @@ public class ProfileActivity extends AppCompatActivity implements GoogleApiClien
             userProfile();
         }
         super.onPause();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        int id = item.getItemId();
+        if (id == R.id.action_close) {
+            Intent intent = new Intent(ProfileActivity.this,MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

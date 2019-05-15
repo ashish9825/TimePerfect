@@ -42,7 +42,6 @@ public class AboutActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         setContentView(R.layout.activity_about);
 
@@ -77,6 +76,14 @@ public class AboutActivity extends AppCompatActivity {
                 onBackPressed();
                 return true;
         }
+        int id = item.getItemId();
+        if (id == R.id.action_close) {
+            Intent intent = new Intent(AboutActivity.this,MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            startActivity(intent);
+            finish();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -84,8 +91,8 @@ public class AboutActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intents = new Intent(AboutActivity.this,MainActivity.class);
         intents.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intents);
         overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+        startActivity(intents);
         finish();
     }
 

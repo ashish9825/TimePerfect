@@ -39,6 +39,7 @@ import com.example.ashishpanjwani.timeperfectagain.Model.CurrentTimeList;
 import com.example.ashishpanjwani.timeperfectagain.Model.UserProfile;
 import com.example.ashishpanjwani.timeperfectagain.Receiver.ScreenReceiver;
 import com.example.ashishpanjwani.timeperfectagain.Utils.SharedPrefManager;
+import com.example.ashishpanjwani.timeperfectagain.Utils.TimePerfectUtil;
 import com.example.ashishpanjwani.timeperfectagain.Views.AboutActivity;
 import com.example.ashishpanjwani.timeperfectagain.Views.DonateActivity;
 import com.google.android.gms.auth.api.Auth;
@@ -112,7 +113,6 @@ public class AfterSignUpActivity extends AppCompatActivity implements InternetCo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
         setContentView(R.layout.nav_main);
 
@@ -163,6 +163,7 @@ public class AfterSignUpActivity extends AppCompatActivity implements InternetCo
         View header = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+        TimePerfectUtil.setMargins(navigationView,0,0,0, TimePerfectUtil.getSoftButtonsBarSizePort(AfterSignUpActivity.this));
 
         mFullNameTextView = header.findViewById(R.id.name_textview);
         mEmailTextView = header.findViewById(R.id.email_textview);
@@ -265,6 +266,7 @@ public class AfterSignUpActivity extends AppCompatActivity implements InternetCo
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        TimePerfectUtil.setMargins(recyclerView,0,0,0, TimePerfectUtil.getSoftButtonsBarSizePort(AfterSignUpActivity.this));
         getDayTimes();
     }
 
